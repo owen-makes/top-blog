@@ -1,7 +1,7 @@
 databases:
   - name: blog_production
     databaseName: blog_production
-    user: blog_user
+    user: blog
 
 services:
   - type: web
@@ -16,3 +16,5 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+    databaseUrl: ${blog_production.DATABASE_URL}
+    preDeployCommand: "bundle exec rails db:migrate"
