@@ -2,6 +2,9 @@
 # exit on error
 set -o errexit
 
+echo "Database URL: $DATABASE_URL"
+echo "Rails ENV: $RAILS_ENV"
+
 bundle install
 bundle exec rails assets:precompile
 bundle exec rails assets:clean
